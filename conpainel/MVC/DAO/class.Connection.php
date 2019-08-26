@@ -9,13 +9,13 @@
 
 		function __construct(){
 			private $this->user = "root";
-			private $this->password = "1234@mudar";
-			private $this->database = "sabaojua_databse";
+			private $this->password = "";
+			private $this->database = "sabaojua_sdb";
 			public $this->conn = null;
 
 		}	
 
-		public openConnection(){
+		public static createConnection(){
 			try {
 				$opcoes = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
 				$this->conn = new PDO('mysql:host=localhost;dbname='.$this->bd_name,$this->username,$this->password,$opcoes);

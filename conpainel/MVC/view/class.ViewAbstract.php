@@ -4,6 +4,5 @@
 
 		function show();
 		function getModel();
-		function 
 		
 	}
