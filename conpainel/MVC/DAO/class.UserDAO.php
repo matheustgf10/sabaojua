@@ -10,7 +10,6 @@ class userDAO{
 	
 	function __construct($User){
 		$this->User = $User;
-		$this->Conn = new Connection();
 		$this->Conn = Connection::createConnection();
 
 	}
@@ -23,7 +22,7 @@ class userDAO{
 		
 		return $this->stmt->execute();
 	}
-	
+
 	public function delete(){
 		$this->stmt = $this->Conn->prepare("UPDATE user SET flag = 0 WHERE id = ?");
 		$this->stmt->bindValue(1, $this->User->id);
@@ -31,7 +30,7 @@ class userDAO{
 		return $this->stmt->execute();
 	} 
 	
-	public function update(){
+	public function update(){		
 		$this->stmt = $this->Conn->prepare("UPDATE user SET login = ?, password = ? WHERE id = ?");
 		$this->stmt->bindValue(1, $this->User->login);
 		$this->stmt->bindValue(2, $this->User->password);
